@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Cultuurhuis</title>
+
+    <link rel='stylesheet' href='styles/default.css'>
+
+</head>
+<body>
+
+<h1>Het Cultuurhuis: voorstellingen</h1>
+
+<h2>Genres</h2>
+
+<nav>
+    <ul>
+
+        <c:forEach var='genre' items='${genres}'>
+
+            <li><a href="index.htm?genreId=${genre.id}">${genre.naam}</a></li>
+
+        </c:forEach>
+    </ul>
+</nav>
+
+<h2>Voorstellingen</h2>
+
+
+<table style="width: 100%">
+    <!--  class= -->
+    <tr>
+        <th>Datum</th>
+        <th>Titel</th>
+        <th>Uitvoerder</th>
+        <th>Prijs</th>
+        <th>Vrije plaatsen</th>
+        <th>Reserveren</th>
+
+    </tr>
+
+    <c:forEach var='voorstelling' items='${voorstellingen}'>
+
+        <tr>
+            <td>${voorstelling.datum}</td>
+            <td>${voorstelling.titel}</td>
+            <td>${voorstelling.uitvoerders}</td>
+            <td>${voorstelling.prijs}</td>
+            <td>${voorstelling.vrijePlaatsen}</td>
+            <td><a href="reserveer.htm?id=${voorstelling.id}">Reserveren</a>
+        </tr>
+    </c:forEach>
+</table>
+</body>
+</html>
